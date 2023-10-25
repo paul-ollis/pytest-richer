@@ -1,0 +1,44 @@
+"""Demo tests."""
+
+# ruff: noqa: ARG001, S101
+
+import logging
+import sys
+
+import pytest
+
+logger = logging.getLogger()
+
+
+def sub_func():
+    """Help a test do its thing."""
+    a = 3
+    assert a == 2                                               # noqa: PLR2004
+
+
+def another_sub_func():
+    """Help a test do its thing."""
+    print('Output written to sys.stdout')
+    a = 3
+    print(a / 0)
+
+
+def test_1(delay):
+    """One of the simple passing tests."""
+    print('Output written to sys.stderr', file=sys.stderr)
+    delay()
+    pytest.fail('This test has failed!')
+
+
+def test_2(delay):
+    """A plain failing test."""
+    delay()
+    logger.warning('A logged warning.')
+    logger.error('A logged error.')
+    pytest.fail('This test has failed!')
+
+
+def test_3(delay):
+    """A plain failing test."""
+    delay()
+    another_sub_func()

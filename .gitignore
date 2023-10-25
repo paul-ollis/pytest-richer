@@ -1,0 +1,14 @@
+build
+.coverage
+coverage.json
+.coveragerc
+.ctags.d
+.dmypy.json
+ext-coverage.json
+local-requirements.txt
+mypy.ini
+pylintrc
+src/pytest_richer/capture.py
+src/pytest_richer/py.typed
+tags
+.times.txt

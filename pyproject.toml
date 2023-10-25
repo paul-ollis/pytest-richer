@@ -1,0 +1,98 @@
+[project]
+name = "pytest-richer"
+version = "0.1.0"
+authors = [
+  { name="Paul Ollis", email="paul@cleversheep.org" },
+]
+description = "Pytest plugin providing a Rich based reporter."
+requires-python = ">=3.9"
+readme = "README.rst"
+classifiers = [
+    'Development Status :: 3 - Beta',
+    "Environment :: Console",
+    "Framework :: Pytest",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+dependencies = [
+    'rich',
+    'pytest',
+]
+
+[project.entry-points.pytest11]
+richer = "pytest_richer.plugin"
+
+[project.urls]
+"Homepage" = "https://github.com/paul-ollis/pytest-richer"
+"Bug Tracker" = "https://github.com/paul-ollis/pytest-richer/issues"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+addopts = "--rich-store-exec-times=.times.txt -m 'not fred'"
+
+[tool.ruff]
+per-file-ignores = {}
+target-version = "py39"
+line-length = 79
+select = ["ALL", "E", "F", "B", "D", "PL"]
+ignore = [
+    "ANN101",  # Missing self: type.
+    "ANN102",  # Missing cls: type.
+    "ANN204",  # Missing __init__ return type.
+    "B905",    # Do not require strict argument for zip().
+    "C408",    # Sometimes a dict call is more readable.
+    "D105",    # Do not require docstring for dunder methods.
+    "D107",    # Do not require docstring for __init__().
+               # The class docstring should provide details of construction.
+    "FIX002",  # A 'todo' in the line.
+    "I001",    # Unsorted imports.
+               # I think I can re-enable this if Ruff starts to support the
+               # multi-line-output option.
+    "INP001",  # I can workout when a package is really a package.
+    "N818",    # Silly rule about exception names ending in 'Error'.
+    "PLC1901", # Do not compare equal to empty string.
+    "PT004",   # Relax rulas about fixturea that return None.
+    "RET505",  # Unnecessary else after return.
+    "S311",    # Ignore warning about non-crpyptographic RNG,
+    "S603",    # General subprocess security warning.
+    "T20",     # Allow the print function to be used.
+
+    # Below are checks I wish re-enable, once the code is cleaner.
+    "ANN001",  # Missing return type argument.
+    "ANN002",  # Missing return type for *args.
+    "ANN003",  # Missing return type for **kwargs.
+    "ANN201",  # Missing return type for public method/function.
+    "ANN202",  # Missing return type for private method/function.
+    "ANN205",  # Missing return type for static method.
+    "ANN206",  # Missing return type for class method.
+    "ARG002",  # Unused argument.
+               # Also pylint:unused-argument. If I can prevent this when the
+               # API demands the (keyword) argument then I will re-enable.
+    "TD002",   # Author missing for 'todo'
+    "TD003",   # Issue ref missing for 'todo'
+]
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.mccabe]
+# Unlike Flake8, default to a complexity level of 10.
+max-complexity = 10
+
+[tool.ruff.pydocstyle]
+convention = "pep257"
+
+[tool.ruff.flake8-quotes]
+inline-quotes = "single"
+multiline-quotes = "single"
+
+[tool.ruff.flake8-pytest-style]
+fixture-parentheses = false
