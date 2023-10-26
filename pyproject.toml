@@ -5,17 +5,16 @@ authors = [
   { name="Paul Ollis", email="paul@cleversheep.org" },
 ]
 description = "Pytest plugin providing a Rich based reporter."
-requires-python = ">=3.9"
+requires-python = ">=3.11"
 readme = "README.rst"
 classifiers = [
-    'Development Status :: 3 - Beta',
+    'Development Status :: 3 - Alpha',
     "Environment :: Console",
     "Framework :: Pytest",
     "License :: OSI Approved :: MIT License",
     "Operating System :: Microsoft :: Windows",
     "Operating System :: POSIX :: Linux",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
 ]

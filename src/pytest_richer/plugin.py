@@ -1,7 +1,6 @@
 """A Rich based plugin for pytest."""
 from __future__ import annotations
 
-import argparse
 import os
 import pickle
 import sys
@@ -36,11 +35,6 @@ def pytest_addoption(parser):
         '--rich-store-exec-times',
         action='store', metavar='PATH',
         help='Store test execution times in PATH.',
-    )
-    group.addoption(
-        '--rich-snap',
-        action='store_true',
-        help=argparse.SUPPRESS,
     )
 
 

@@ -13,20 +13,50 @@ A replacement progress and reporting front end for `pytest`_, using `Rich`_ to
 provide enhanced output.
 
 
-Installation
-------------
+Status
+======
 
-This is not yet on ``PyPi``.
+The most recent release is 0.1.0.
 
-Clone this repository and install using ``pip``, For example:
+This is *alpha* software. Probably quite robust *alpha* software (I use it all
+the time), but there will be `pytest`_ options that cause it to fail or behave
+weirdly.
 
-.. code-block::
+Please try it and raise issues if you have problems. I intend to check daily
+and fix things quickly.
 
-    python -m pip install --user pytest-richer
+
+Getting started
+===============
+
+- Install from PyPi using pip, for example:
+
+  .. code-block::
+
+      python -m pip install --user pytest-richer
+
+
+- Clone this repository and install using ``pip``, For example:
+
+  .. code-block::
+
+      python -m pip install --user pytest-richer
+
+
+.. note::
+
+    This was inspired by `pytest-rich`_, but is incompatible with it. If you have
+    `pytest-rich`_ installed, you will need to uninstall it first.
+
+
+Using
+-----
+
+Use the ``--rich`` command option when you invoke `pytest`_.
 
 
 Features
---------
+========
 
 - Detailed per-file/per directory progress display.
 
