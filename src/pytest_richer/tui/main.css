@@ -1,0 +1,48 @@
+/* CSS for the Pytest App. */
+
+/*
+ * Global defaults.
+ */
+
+* {
+   scrollbar-size: 1 1;
+}
+
+#auto-run-label {
+    color: $secondary;
+    margin-left: 1;
+}
+
+Horizontal {
+    height: auto;
+}
+
+TabPane {
+    padding: 0 0 0 0;
+}
+
+.-invalid {
+    color: red;
+}
+
+.bordered {
+    border: solid $primary-lighten-2;
+}
+
+/* TODO: This is in ConfigPanel.DEFAULT_CSS, why is it needed here? */
+ConfigPanel Button {
+    border: none;
+}
+
+/* TODO: This is in DirectoryEntry.DEFAULT_CSS, why is it needed here? */
+DirectoryEntry {
+    height: auto;
+    width: auto;
+}
+
+/* Another thing that does not work in the DEFAULT_CSS. */
+CompactSelect {
+    & > SelectCurrent {
+        border: none;
+    }
+}

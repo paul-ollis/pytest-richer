@@ -1,11 +1,11 @@
 [project]
 name = "pytest-richer"
-version = "0.1.0"
+version = "0.1.1"
 authors = [
   { name="Paul Ollis", email="paul@cleversheep.org" },
 ]
 description = "Pytest plugin providing a Rich based reporter."
-requires-python = ">=3.11"
+requires-python = ">=3.11.2,<=3.12"
 readme = "README.rst"
 classifiers = [
     'Development Status :: 3 - Alpha',
@@ -19,9 +19,19 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    'rich',
+    'appdirs',
     'pytest',
+    'rich',
 ]
+
+[tool.setuptools.package-data]
+pytest_richer = ["main.css"]
+
+[project.scripts]
+pytest-richer= "pytest_richer.main:main"
+
+[project.optional-dependencies]
+watchdog = ['watchdog']
 
 [project.entry-points.pytest11]
 richer = "pytest_richer.plugin"
@@ -35,7 +45,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.pytest.ini_options]
-addopts = "--rich-store-exec-times=.times.txt -m 'not fred'"
+# addopts = "--rich-store-exec-times=.times.txt -m 'not fred'"
 
 [tool.ruff]
 per-file-ignores = {}
@@ -43,6 +53,8 @@ target-version = "py39"
 line-length = 79
 select = ["ALL", "E", "F", "B", "D", "PL"]
 ignore = [
+    "PD",
+
     "ANN101",  # Missing self: type.
     "ANN102",  # Missing cls: type.
     "ANN204",  # Missing __init__ return type.
@@ -63,6 +75,11 @@ ignore = [
     "S311",    # Ignore warning about non-crpyptographic RNG,
     "S603",    # General subprocess security warning.
     "T20",     # Allow the print function to be used.
+    "TID252",  # Allow relative import from parents.
+    "SIM102",  # Allow nested if statements where 'and' might be used instead.
+
+    # Overlaps with pylint.
+    "PLR0913", # Too many arguments.
 
     # Below are checks I wish re-enable, once the code is cleaner.
     "ANN001",  # Missing return type argument.

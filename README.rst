@@ -1,8 +1,4 @@
-.. list-table::
-
-   * - .. image:: resources/demo1.png
-
-     - .. image:: resources/demo2.png
+.. image:: resources/demo1.png
 
 
 =============
@@ -16,7 +12,7 @@ provide enhanced output.
 Status
 ======
 
-The most recent release is 0.1.0.
+The most recent release is 0.1.1.
 
 This is *alpha* software. Probably quite robust *alpha* software (I use it all
 the time), but there will be `pytest`_ options that cause it to fail or behave
@@ -54,9 +50,13 @@ Using
 
 Use the ``--rich`` command option when you invoke `pytest`_.
 
+See ``--help`` for additional ``rich-`` options.
+
 
 Features
 ========
+
+.. image:: resources/demo2.png
 
 - Detailed per-file/per directory progress display.
 
